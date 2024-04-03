@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-container">
+
+            <div class="side-Modal">
+                <div class="sideNav">
+                    <ul class="profile">
+                       
+                        <li class="p-Name"><img src="Blue and Black Modern Gradient Software Development Technology Logo.png" alt="" width="50px">CODE TECH</li>
+                        <li class="p-img"><img src="./profile.jpg" alt=""></li>
+                    </ul>
+                    <ul class="userList">
+                        <li><img src="./icons8-dashboard-24.png" alt=""><span>DashBoard</span></li>
+                        <li><img src="./icons8-employees-24.png" alt=""> <span>Employees</span></li>
+                        <li><img src="./Payroll.png" alt=""><span>Payroll</span></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main">
+                <div class="navBar">
+                    <div class="left">
+                        <img src="./employee.png" alt="">
+                        <p>Employee List</p>
+                    </div>
+                    <div class="right">
+                        <button id="add-employee-btn">Add Employee</button>
+                    </div>
+                </div>
+                <h1>Employee Dashboard</h1>
+                <div id="employee-list">
+                    <!-- Employee list will be displayed here -->
+                </div>
+            
+        
+            <!-- Modal for adding a new employee -->
+                <div id="add-employee-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Add Employee</h2>
+                        <input type="text" id="employee-name" placeholder="Employee Name">
+                        <input type="text" id="employee-position" placeholder="Position">
+                        <button id="add-employee-submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
