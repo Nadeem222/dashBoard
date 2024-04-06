@@ -47,8 +47,37 @@
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <h2>Add Employee</h2>
-                        <input type="text" id="employee-name" placeholder="Employee Name">
-                        <input type="text" id="employee-position" placeholder="Position">
+                        <div class="epmloyeeDetail">
+
+                            <fieldset>
+                                <legend>Employee Name</legend>
+                                <input type="text" id="employee-name" >
+                            </fieldset>
+                            <fieldset>
+                                <legend>Father Name</legend>
+                                <input type="text" id="fatherName" >
+                            </fieldset>
+                        </div>
+                        <fieldset>
+                            <legend>Designation</legend>
+                            <input type="text" id="employee-position" >
+                        </fieldset>
+                        <fieldset>
+                            <legend>Email Address</legend>
+                            <input type="email" id="employee-email" >
+                        </fieldset>
+                        <fieldset>
+                            <legend>Contact</legend>
+                            <input type="number" id="employee-contact" >
+                        </fieldset>
+                        <div class="address picture" onclick="triggerFileInput()">
+                            <label for="picture">Picture</label>
+                            <span>
+                                <input type="file" accept="image" role="button" id="picture" style="display: none;" onchange="handleFileSelection(this)">
+                                +upload
+                                <img id="preview" alt="Preview" style="display: none;">
+                            </span>
+                        </div>
                         <button id="add-employee-submit">Submit</button>
                     </div>
                 </div>

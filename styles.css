@@ -72,7 +72,7 @@
     width: 36px;
     height: 36px;
 }
-span{
+.userList span{
     margin-left: 20px;
 }
 .navBar{
@@ -115,6 +115,7 @@ span{
     text-align: left;
 }
 
+/* Modal styling */
 .modal {
     display: none;
     position: fixed;
@@ -150,4 +151,69 @@ span{
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+fieldset {
+    border: 1px solid #7e93cf;
+    border-radius: 6px;
+    padding-block-start: 0;
+    padding-inline-end: 5px;
+    margin-bottom: 8px;
+}
+fieldset input{
+    width: 100%;
+    height:100%;
+    font-size: 18px;
+    border: none;
+    outline: none;
+}
+fieldset input:focus{
+    border: none;
+}
+.epmloyeeDetail{
+    display: flex;
+}
+.epmloyeeDetail fieldset{
+    padding-inline-end: 8px;
+
+}
+legend{
+    font-weight: 800;
+    color: #0D6DB7;
+}
+.address {
+    width: 100%;
+}
+.address span {
+    border: 1px dashed #949292;
+    width: 100%;
+    height: 135px;
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    position: relative;
+    margin-top: 10px;
+}
+.address input, select {
+    width: 100%;
+    padding: 25px 10px;
+    box-sizing: border-box;
+    border: 1px solid #97C84A;
+    border-radius: 5px;
+}
+.picture span img {
+    width: 100%;
+    position: absolute;
+    max-height: 100%;
+    object-fit: contain;
+}
+label{
+    color: #0D6DB7;
+    font-weight: 800;
+    margin-bottom: 5px;
+    padding-left: 18px;
+
 }
