@@ -36,9 +36,20 @@
                         <button id="add-employee-btn">Add Employee</button>
                     </div>
                 </div>
-                <h1>Employee Dashboard</h1>
-                <div id="employee-list">
-                    <!-- Employee list will be displayed here -->
+                <div class="content">
+
+                    <h1>Employee Dashboard</h1>
+                    <table id="display">
+                        <tr class="tableHead">
+                            <td>Name <span><i class="fa-solid fa-up-down"></i></span></td>
+                            <td>Mobile <span><i class="fa-solid fa-up-down"></i></span></td>
+                            <td>Date Hired <span><i class="fa-solid fa-up-down"></i></span></td>
+                            <td>Position <span><i class="fa-solid fa-up-down"></i></span></td>
+                            <td>Department <span><i class="fa-solid fa-up-down"></i></span></td>
+                            <td>ID No <span><i class="fa-solid fa-up-down"></i></span></td>
+                        </tr>
+                        
+                    </table>
                 </div>
             
         
@@ -61,6 +72,10 @@
                         <fieldset>
                             <legend>Designation</legend>
                             <input type="text" id="employee-position" >
+                        </fieldset>
+                        <fieldset>
+                            <legend>Department</legend>
+                            <input type="text" id="employee-department" >
                         </fieldset>
                         <fieldset>
                             <legend>Email Address</legend>

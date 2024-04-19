@@ -1,60 +1,92 @@
 
-    const employeeList = document.getElementById('employee-list');
-    const addEmployeeBtn = document.getElementById('add-employee-btn');
-    const modal = document.getElementById('add-employee-modal');
-    const closeBtn = document.getElementsByClassName('close')[0];
-    const addEmployeeSubmitBtn = document.getElementById('add-employee-submit');
+const employeeList = document.getElementById('employee-list');
+const addEmployeeBtn = document.getElementById('add-employee-btn');
+const modal = document.getElementById('add-employee-modal');
+const closeBtn = document.getElementsByClassName('close')[0];
+const addEmployeeSubmitBtn = document.getElementById('add-employee-submit');
+
     
-    // Dummy data for initial display
-    let employees = [
-        { name: 'John Doe', fatherName : 'Don', position: 'Manager', },
-        { name: 'Jane Smith', position: 'Developer' }
-    ];
+let employees = JSON.parse(localStorage.getItem("employees")) || [];
 
     // Function to display employees
-    function displayEmployees() {
-        employeeList.innerHTML = '';
-        employees.forEach(function(employee) {
-            const item = document.createElement('div');
-            item.innerHTML = `<strong>${employee.name}</strong> <strong> ${employee.fatherName} </strong>: ${employee.position} `;
-            employeeList.appendChild(item);
-        });
-    }
+function displayEmployees() {
+        
+    const result = document.getElementById('display');
 
-    // Display initial employees
-    displayEmployees();
+    // Clear existing rows except for the table head
+    const tableHead = result.querySelector('tr.tableHead');
+    result.innerHTML = '';
+    result.appendChild(tableHead);
+
+    // Add employee data rows
+    employees.forEach(function(employee) {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td class="name"><span><img src="${employee.image}" alt=""></span>${employee.name}</td>
+            <td>${employee.contact}</td>
+            <td>${employee.joinDate}</td>
+            <td>${employee.position}</td>
+            <td>${employee.department}</td>
+            <td>${employee.id}</td>
+        `;
+        result.appendChild(newRow);
+    });
+}
+
+displayEmployees();
 
     // Add employee button click event
-    addEmployeeBtn.onclick = function() {
+addEmployeeBtn.onclick = function() {
         modal.style.display = 'flex';
     }
 
     // Close modal when close button is clicked
-    closeBtn.onclick = function() {
+closeBtn.onclick = function() {
         modal.style.display = 'none';
 
     }
 
     // Add employee submit button click event
-    addEmployeeSubmitBtn.onclick = function() {
+addEmployeeSubmitBtn.onclick = function() {
         const name = document.getElementById('employee-name').value;
         const fatherName = document.getElementById('fatherName').value;
         const position = document.getElementById('employee-position').value;
+        const contact = document.getElementById('employee-contact').value;
+        const department = document.getElementById('employee-department').value;
 
-        // Add the new employee to the employees array
-        employees.push({ name, position , fatherName });
 
-        // Update the displayed list of employees
-        displayEmployees();
+        if (!selectedImageData) {
+            alert("Please select an image for the employee.");
+            return;
+        }
+        
+        if(name.trim() === "" && fatherName.trim() === "" && position.trim() === ""){
+            alert("Please fill all inout fields")
+        }else{
 
-        // Close the modal
-        modal.style.display = 'none';
+            employees.push({ name, position , fatherName , selectedImageData , contact, department, image: selectedImageData});
+    
+            localStorage.setItem("employees" , JSON.stringify(employees))
+    
+            console.log(localStorage)
+    
+            // Update the displayed list of employees
+            displayEmployees();
+    
+            // Close the modal
+            modal.style.display = 'none';
+    
+            // Clear input fields
+            document.getElementById('employee-name').value = '';
+            document.getElementById('employee-position').value = '';
+            document.getElementById('fatherName').value = " ";
+            document.getElementById('employee-contact').value = "";
+            document.getElementById('employee-department').value = "";
+            selectedImageData = null;
+        }
 
-        // Clear input fields
-        document.getElementById('employee-name').value = '';
-        document.getElementById('employee-position').value = '';
-        document.getElementById('fatherName').value = " ";
-    }
+    
+}
 
 function triggerFileInput() {
     document.getElementById('picture').click();
@@ -84,4 +116,5 @@ function handleFileSelection(input) {
     preview.src = URL.createObjectURL(selectedFile);
 
     selectedImageData = URL.createObjectURL(selectedFile);
+    console.log(selectedImageData)
 }
